@@ -1,5 +1,3 @@
-# Language + Culture Offline PWA
+# Fixed GitHub Pages PWA
 
-Upload all files to a GitHub repo and enable GitHub Pages.
-
-Works offline after first load.
+Upload these files to GitHub Pages. All text is embedded directly inside index.html.

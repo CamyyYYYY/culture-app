@@ -1,15 +1,1344 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#111827"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icons/icon-192.png">
-<title>Language + Culture</title><link rel="stylesheet" href="style.css"></head>
-<body id="top"><header><h1>Language + Culture</h1><p>No API. Works offline after first load. Common Spanish + Lebanese Arabic words/sayings.</p>
-<nav><a href="#spanish">Spanish</a><a href="#arabic">Lebanese Arabic</a><a href="#jamaican">Jamaican Facts</a><a href="#cree">Cree Facts</a><a href="#sources">Sources</a></nav></header>
-<main><section class="tip"><b>Daily repetition:</b> practice 5 Spanish cards, 5 Arabic cards, and 2 culture facts per day.</section>
-<section id="spanish"><h2>🇪🇸 50 Very Common Spanish Words + Sayings</h2><div class="grid" id="spanishGrid"></div></section>
-<section id="arabic"><h2>🇱🇧 50 Very Common Lebanese Arabic Words + Sayings</h2><div class="grid" id="arabicGrid"></div></section>
-<section id="jamaican"><h2>🇯🇲 50 Jamaican Culture Facts</h2><div class="grid" id="jamaicanGrid"></div></section>
-<section id="cree"><h2>🪶 50 Cree Culture Facts</h2><div class="grid" id="creeGrid"></div></section>
-<section id="sources"><h2>Sources</h2><ol id="sourcesList"></ol></section></main>
-<a class="topbtn" href="#top">↑ Top</a><footer>Install on phone: open this GitHub Pages site, then use “Add to Home Screen.”</footer>
-<script src="data.js"></script><script src="app.js"></script><script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./service-worker.js");}</script>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Language + Culture</title>
+<style>:root{--bg:#f6f1e8;--card:#fff;--ink:#111827;--muted:#64748b;--line:#e5e7eb}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}header{position:sticky;top:0;z-index:5;background:rgba(246,241,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:16px}h1{margin:0;font-size:clamp(28px,7vw,44px);line-height:1}header p{margin:6px 0 0;color:var(--muted);font-size:14px}nav{display:flex;gap:8px;overflow:auto;padding-top:12px}nav a{white-space:nowrap;text-decoration:none;color:#111827;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-weight:800;font-size:14px}main{padding:16px;max-width:1050px;margin:0 auto}section{margin:18px 0}h2{font-size:clamp(22px,5vw,32px);margin:0 0 12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.04)}.num{color:var(--muted);font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.phrase{font-size:24px;font-weight:900;margin:7px 0}.arabic{direction:rtl;text-align:left;font-size:28px}.label{font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:900;margin-top:10px}.value{font-size:16px;margin-top:3px}.reply{background:#f8fafc;border-radius:12px;padding:10px;margin-top:10px}.fact{font-size:16px;line-height:1.45}.tip{background:#111827;color:white;border-radius:18px;padding:16px;margin:12px 0}.topbtn{position:fixed;right:14px;bottom:14px;background:#111827;color:#fff;border-radius:999px;padding:12px 14px;text-decoration:none;font-weight:900}footer{color:var(--muted);padding:28px 16px 80px;max-width:1050px;margin:auto}li{margin:8px 0}a{color:#0f172a}</style>
+</head>
+<body id="top">
+<header>
+<h1>Language + Culture</h1>
+<p>No API. No extra JavaScript needed. Common Spanish + Lebanese Arabic words/sayings.</p>
+<nav>
+<a href="#spanish">Spanish</a>
+<a href="#arabic">Lebanese Arabic</a>
+<a href="#jamaican">Jamaican Facts</a>
+<a href="#cree">Cree Facts</a>
+<a href="#sources">Sources</a>
+</nav>
+</header>
+<main>
+<section class="tip"><b>Daily repetition:</b> practice 5 Spanish cards, 5 Arabic cards, and 2 culture facts per day.</section>
+<section id="spanish"><h2>🇪🇸 50 Very Common Spanish Words + Sayings</h2><div class="grid">
+    <article class="card">
+      <div class="num">Spanish #1</div>
+      <div class="phrase">Hola</div>
+      <div class="label">Pronunciation</div><div class="value">OH-lah</div>
+      <div class="label">Meaning</div><div class="value">Hello</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Hola, ¿cómo estás?</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">OH-lah, KOH-moh es-TAHS</div>
+        <div class="label">Reply meaning</div><div class="value">Hello, how are you?</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #2</div>
+      <div class="phrase">Gracias</div>
+      <div class="label">Pronunciation</div><div class="value">GRAH-syahs</div>
+      <div class="label">Meaning</div><div class="value">Thank you</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>De nada</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">deh NAH-dah</div>
+        <div class="label">Reply meaning</div><div class="value">You&#x27;re welcome</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #3</div>
+      <div class="phrase">Sí</div>
+      <div class="label">Pronunciation</div><div class="value">see</div>
+      <div class="label">Meaning</div><div class="value">Yes</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Sí, claro</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">see, KLAH-roh</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, of course</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #4</div>
+      <div class="phrase">No</div>
+      <div class="label">Pronunciation</div><div class="value">noh</div>
+      <div class="label">Meaning</div><div class="value">No</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>No, gracias</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">noh, GRAH-syahs</div>
+        <div class="label">Reply meaning</div><div class="value">No, thank you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #5</div>
+      <div class="phrase">Por favor</div>
+      <div class="label">Pronunciation</div><div class="value">por fah-VOR</div>
+      <div class="label">Meaning</div><div class="value">Please</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Claro</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">KLAH-roh</div>
+        <div class="label">Reply meaning</div><div class="value">Of course</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #6</div>
+      <div class="phrase">Perdón</div>
+      <div class="label">Pronunciation</div><div class="value">pehr-DOHN</div>
+      <div class="label">Meaning</div><div class="value">Sorry / excuse me</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>No pasa nada</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">noh PAH-sah NAH-dah</div>
+        <div class="label">Reply meaning</div><div class="value">No problem</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #7</div>
+      <div class="phrase">Buenos días</div>
+      <div class="label">Pronunciation</div><div class="value">BWEH-nohs DEE-ahs</div>
+      <div class="label">Meaning</div><div class="value">Good morning</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Buenos días</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">BWEH-nohs DEE-ahs</div>
+        <div class="label">Reply meaning</div><div class="value">Good morning</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #8</div>
+      <div class="phrase">Buenas tardes</div>
+      <div class="label">Pronunciation</div><div class="value">BWEH-nahs TAR-dehs</div>
+      <div class="label">Meaning</div><div class="value">Good afternoon</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Buenas tardes</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">BWEH-nahs TAR-dehs</div>
+        <div class="label">Reply meaning</div><div class="value">Good afternoon</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #9</div>
+      <div class="phrase">Buenas noches</div>
+      <div class="label">Pronunciation</div><div class="value">BWEH-nahs NOH-chehs</div>
+      <div class="label">Meaning</div><div class="value">Good night</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Buenas noches</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">BWEH-nahs NOH-chehs</div>
+        <div class="label">Reply meaning</div><div class="value">Good night</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #10</div>
+      <div class="phrase">¿Cómo estás?</div>
+      <div class="label">Pronunciation</div><div class="value">KOH-moh es-TAHS</div>
+      <div class="label">Meaning</div><div class="value">How are you?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Estoy bien</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">es-TOY byen</div>
+        <div class="label">Reply meaning</div><div class="value">I&#x27;m good</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #11</div>
+      <div class="phrase">¿Qué tal?</div>
+      <div class="label">Pronunciation</div><div class="value">keh tahl</div>
+      <div class="label">Meaning</div><div class="value">What&#x27;s up?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Todo bien</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">TOH-doh byen</div>
+        <div class="label">Reply meaning</div><div class="value">All good</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #12</div>
+      <div class="phrase">Mucho gusto</div>
+      <div class="label">Pronunciation</div><div class="value">MOO-choh GOOS-toh</div>
+      <div class="label">Meaning</div><div class="value">Nice to meet you</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Igualmente</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ee-GWAHL-men-teh</div>
+        <div class="label">Reply meaning</div><div class="value">Likewise</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #13</div>
+      <div class="phrase">Me llamo...</div>
+      <div class="label">Pronunciation</div><div class="value">meh YAH-moh</div>
+      <div class="label">Meaning</div><div class="value">My name is...</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Mucho gusto</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">MOO-choh GOOS-toh</div>
+        <div class="label">Reply meaning</div><div class="value">Nice to meet you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #14</div>
+      <div class="phrase">¿Cómo te llamas?</div>
+      <div class="label">Pronunciation</div><div class="value">KOH-moh teh YAH-mahs</div>
+      <div class="label">Meaning</div><div class="value">What is your name?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Me llamo...</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">meh YAH-moh</div>
+        <div class="label">Reply meaning</div><div class="value">My name is...</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #15</div>
+      <div class="phrase">¿De dónde eres?</div>
+      <div class="label">Pronunciation</div><div class="value">deh DOHN-deh EH-rehs</div>
+      <div class="label">Meaning</div><div class="value">Where are you from?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Soy de...</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">soy deh</div>
+        <div class="label">Reply meaning</div><div class="value">I&#x27;m from...</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #16</div>
+      <div class="phrase">¿Hablas inglés?</div>
+      <div class="label">Pronunciation</div><div class="value">AH-blahs een-GLES</div>
+      <div class="label">Meaning</div><div class="value">Do you speak English?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Sí, un poco</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">see, oon POH-koh</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, a little</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #17</div>
+      <div class="phrase">No entiendo</div>
+      <div class="label">Pronunciation</div><div class="value">noh en-TYEN-doh</div>
+      <div class="label">Meaning</div><div class="value">I don&#x27;t understand</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>No te preocupes</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">noh teh preh-oh-KOO-pehs</div>
+        <div class="label">Reply meaning</div><div class="value">Don&#x27;t worry</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #18</div>
+      <div class="phrase">¿Puedes repetir?</div>
+      <div class="label">Pronunciation</div><div class="value">PWEH-dehs reh-peh-TEER</div>
+      <div class="label">Meaning</div><div class="value">Can you repeat?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Sí, claro</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">see, KLAH-roh</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, of course</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #19</div>
+      <div class="phrase">Más despacio</div>
+      <div class="label">Pronunciation</div><div class="value">mahs des-PAH-see-oh</div>
+      <div class="label">Meaning</div><div class="value">Slower</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Claro, más despacio</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">KLAH-roh, mahs des-PAH-see-oh</div>
+        <div class="label">Reply meaning</div><div class="value">Of course, slower</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #20</div>
+      <div class="phrase">¿Qué significa?</div>
+      <div class="label">Pronunciation</div><div class="value">keh seeg-nee-FEE-kah</div>
+      <div class="label">Meaning</div><div class="value">What does it mean?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Significa...</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">seeg-nee-FEE-kah</div>
+        <div class="label">Reply meaning</div><div class="value">It means...</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #21</div>
+      <div class="phrase">No sé</div>
+      <div class="label">Pronunciation</div><div class="value">noh seh</div>
+      <div class="label">Meaning</div><div class="value">I don&#x27;t know</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Está bien</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">es-TAH byen</div>
+        <div class="label">Reply meaning</div><div class="value">It&#x27;s okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #22</div>
+      <div class="phrase">Está bien</div>
+      <div class="label">Pronunciation</div><div class="value">es-TAH byen</div>
+      <div class="label">Meaning</div><div class="value">It&#x27;s okay</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Gracias</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">GRAH-syahs</div>
+        <div class="label">Reply meaning</div><div class="value">Thank you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #23</div>
+      <div class="phrase">Me gusta</div>
+      <div class="label">Pronunciation</div><div class="value">meh GOOS-tah</div>
+      <div class="label">Meaning</div><div class="value">I like it</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>A mí también</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah mee tahm-BYEN</div>
+        <div class="label">Reply meaning</div><div class="value">Me too</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #24</div>
+      <div class="phrase">No me gusta</div>
+      <div class="label">Pronunciation</div><div class="value">noh meh GOOS-tah</div>
+      <div class="label">Meaning</div><div class="value">I don&#x27;t like it</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Está bien</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">es-TAH byen</div>
+        <div class="label">Reply meaning</div><div class="value">It&#x27;s okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #25</div>
+      <div class="phrase">Quiero esto</div>
+      <div class="label">Pronunciation</div><div class="value">KYEH-roh ES-toh</div>
+      <div class="label">Meaning</div><div class="value">I want this</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Aquí tienes</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah-KEE TYEH-nehs</div>
+        <div class="label">Reply meaning</div><div class="value">Here you go</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #26</div>
+      <div class="phrase">Necesito ayuda</div>
+      <div class="label">Pronunciation</div><div class="value">neh-seh-SEE-toh ah-YOO-dah</div>
+      <div class="label">Meaning</div><div class="value">I need help</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Te ayudo</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">teh ah-YOO-doh</div>
+        <div class="label">Reply meaning</div><div class="value">I&#x27;ll help you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #27</div>
+      <div class="phrase">¿Puedes ayudarme?</div>
+      <div class="label">Pronunciation</div><div class="value">PWEH-dehs ah-yoo-DAR-meh</div>
+      <div class="label">Meaning</div><div class="value">Can you help me?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Sí, claro</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">see, KLAH-roh</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, of course</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #28</div>
+      <div class="phrase">Tengo hambre</div>
+      <div class="label">Pronunciation</div><div class="value">TEN-goh AHM-breh</div>
+      <div class="label">Meaning</div><div class="value">I&#x27;m hungry</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Vamos a comer</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">BAH-mohs ah koh-MEHR</div>
+        <div class="label">Reply meaning</div><div class="value">Let&#x27;s eat</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #29</div>
+      <div class="phrase">Tengo sed</div>
+      <div class="label">Pronunciation</div><div class="value">TEN-goh sed</div>
+      <div class="label">Meaning</div><div class="value">I&#x27;m thirsty</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Toma agua</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">TOH-mah AH-gwah</div>
+        <div class="label">Reply meaning</div><div class="value">Drink water</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #30</div>
+      <div class="phrase">Agua</div>
+      <div class="label">Pronunciation</div><div class="value">AH-gwah</div>
+      <div class="label">Meaning</div><div class="value">Water</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Aquí tienes agua</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah-KEE TYEH-nehs AH-gwah</div>
+        <div class="label">Reply meaning</div><div class="value">Here is water</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #31</div>
+      <div class="phrase">Comida</div>
+      <div class="label">Pronunciation</div><div class="value">koh-MEE-dah</div>
+      <div class="label">Meaning</div><div class="value">Food</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Vamos por comida</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">BAH-mohs por koh-MEE-dah</div>
+        <div class="label">Reply meaning</div><div class="value">Let&#x27;s get food</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #32</div>
+      <div class="phrase">¿Cuánto cuesta?</div>
+      <div class="label">Pronunciation</div><div class="value">KWAHN-toh KWES-tah</div>
+      <div class="label">Meaning</div><div class="value">How much does it cost?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Cuesta...</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">KWES-tah</div>
+        <div class="label">Reply meaning</div><div class="value">It costs...</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #33</div>
+      <div class="phrase">La cuenta, por favor</div>
+      <div class="label">Pronunciation</div><div class="value">lah KWEN-tah, por fah-VOR</div>
+      <div class="label">Meaning</div><div class="value">The check, please</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Claro</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">KLAH-roh</div>
+        <div class="label">Reply meaning</div><div class="value">Of course</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #34</div>
+      <div class="phrase">¿Dónde está el baño?</div>
+      <div class="label">Pronunciation</div><div class="value">DOHN-deh es-TAH el BAH-nyoh</div>
+      <div class="label">Meaning</div><div class="value">Where is the bathroom?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Está allí</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">es-TAH ah-YEE</div>
+        <div class="label">Reply meaning</div><div class="value">It&#x27;s over there</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #35</div>
+      <div class="phrase">Aquí</div>
+      <div class="label">Pronunciation</div><div class="value">ah-KEE</div>
+      <div class="label">Meaning</div><div class="value">Here</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Estoy aquí</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">es-TOY ah-KEE</div>
+        <div class="label">Reply meaning</div><div class="value">I&#x27;m here</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #36</div>
+      <div class="phrase">Allí</div>
+      <div class="label">Pronunciation</div><div class="value">ah-YEE</div>
+      <div class="label">Meaning</div><div class="value">There</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Está allí</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">es-TAH ah-YEE</div>
+        <div class="label">Reply meaning</div><div class="value">It&#x27;s there</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #37</div>
+      <div class="phrase">Derecha</div>
+      <div class="label">Pronunciation</div><div class="value">deh-REH-chah</div>
+      <div class="label">Meaning</div><div class="value">Right</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>A la derecha</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah lah deh-REH-chah</div>
+        <div class="label">Reply meaning</div><div class="value">To the right</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #38</div>
+      <div class="phrase">Izquierda</div>
+      <div class="label">Pronunciation</div><div class="value">ees-KYEHR-dah</div>
+      <div class="label">Meaning</div><div class="value">Left</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>A la izquierda</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah lah ees-KYEHR-dah</div>
+        <div class="label">Reply meaning</div><div class="value">To the left</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #39</div>
+      <div class="phrase">Vamos</div>
+      <div class="label">Pronunciation</div><div class="value">BAH-mohs</div>
+      <div class="label">Meaning</div><div class="value">Let&#x27;s go</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Sí, vamos</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">see, BAH-mohs</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, let&#x27;s go</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #40</div>
+      <div class="phrase">Espera</div>
+      <div class="label">Pronunciation</div><div class="value">es-PEH-rah</div>
+      <div class="label">Meaning</div><div class="value">Wait</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Claro, espero</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">KLAH-roh, es-PEH-roh</div>
+        <div class="label">Reply meaning</div><div class="value">Sure, I&#x27;ll wait</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #41</div>
+      <div class="phrase">Ahora</div>
+      <div class="label">Pronunciation</div><div class="value">ah-OH-rah</div>
+      <div class="label">Meaning</div><div class="value">Now</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Ahora mismo</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah-OH-rah MEES-moh</div>
+        <div class="label">Reply meaning</div><div class="value">Right now</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #42</div>
+      <div class="phrase">Después</div>
+      <div class="label">Pronunciation</div><div class="value">des-PWES</div>
+      <div class="label">Meaning</div><div class="value">Later</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Hablamos después</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah-BLAH-mohs des-PWES</div>
+        <div class="label">Reply meaning</div><div class="value">We&#x27;ll talk later</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #43</div>
+      <div class="phrase">Cuídate</div>
+      <div class="label">Pronunciation</div><div class="value">KWEE-dah-teh</div>
+      <div class="label">Meaning</div><div class="value">Take care</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Tú también</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">too tahm-BYEN</div>
+        <div class="label">Reply meaning</div><div class="value">You too</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #44</div>
+      <div class="phrase">Nos vemos</div>
+      <div class="label">Pronunciation</div><div class="value">nohs VEH-mohs</div>
+      <div class="label">Meaning</div><div class="value">See you</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Nos vemos pronto</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">nohs VEH-mohs PROHN-toh</div>
+        <div class="label">Reply meaning</div><div class="value">See you soon</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #45</div>
+      <div class="phrase">Hasta luego</div>
+      <div class="label">Pronunciation</div><div class="value">AHS-tah LWEH-goh</div>
+      <div class="label">Meaning</div><div class="value">See you later</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Hasta luego</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">AHS-tah LWEH-goh</div>
+        <div class="label">Reply meaning</div><div class="value">See you later</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #46</div>
+      <div class="phrase">Estoy listo</div>
+      <div class="label">Pronunciation</div><div class="value">es-TOY LEES-toh</div>
+      <div class="label">Meaning</div><div class="value">I&#x27;m ready</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Perfecto, vamos</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">pehr-FEK-toh, BAH-mohs</div>
+        <div class="label">Reply meaning</div><div class="value">Perfect, let&#x27;s go</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #47</div>
+      <div class="phrase">¿Está abierto?</div>
+      <div class="label">Pronunciation</div><div class="value">es-TAH ah-BYEHR-toh</div>
+      <div class="label">Meaning</div><div class="value">Is it open?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Sí, está abierto</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">see, es-TAH ah-BYEHR-toh</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, it is open</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #48</div>
+      <div class="phrase">¿Está cerrado?</div>
+      <div class="label">Pronunciation</div><div class="value">es-TAH seh-RAH-doh</div>
+      <div class="label">Meaning</div><div class="value">Is it closed?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Sí, está cerrado</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">see, es-TAH seh-RAH-doh</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, it is closed</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #49</div>
+      <div class="phrase">Mañana</div>
+      <div class="label">Pronunciation</div><div class="value">mah-NYAH-nah</div>
+      <div class="label">Meaning</div><div class="value">Tomorrow</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Hablamos mañana</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah-BLAH-mohs mah-NYAH-nah</div>
+        <div class="label">Reply meaning</div><div class="value">We&#x27;ll talk tomorrow</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Spanish #50</div>
+      <div class="phrase">Hoy</div>
+      <div class="label">Pronunciation</div><div class="value">oy</div>
+      <div class="label">Meaning</div><div class="value">Today</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value"><b>Nos vemos hoy</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">nohs VEH-mohs oy</div>
+        <div class="label">Reply meaning</div><div class="value">We&#x27;ll see each other today</div>
+      </div>
+    </article></div></section>
+<section id="arabic"><h2>🇱🇧 50 Very Common Lebanese Arabic Words + Sayings</h2><div class="grid">
+    <article class="card">
+      <div class="num">Lebanese Arabic #1</div>
+      <div class="phrase arabic">مرحبا</div>
+      <div class="label">Pronunciation</div><div class="value">mar-ha-ba</div>
+      <div class="label">Meaning</div><div class="value">Hello</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أهلا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah-lan</div>
+        <div class="label">Reply meaning</div><div class="value">Hi / welcome</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #2</div>
+      <div class="phrase arabic">أهلا</div>
+      <div class="label">Pronunciation</div><div class="value">ah-lan</div>
+      <div class="label">Meaning</div><div class="value">Hi</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>مرحبا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">mar-ha-ba</div>
+        <div class="label">Reply meaning</div><div class="value">Hello</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #3</div>
+      <div class="phrase arabic">كيفك؟</div>
+      <div class="label">Pronunciation</div><div class="value">keefak / keefik</div>
+      <div class="label">Meaning</div><div class="value">How are you?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>منيح</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">mneeh</div>
+        <div class="label">Reply meaning</div><div class="value">Good</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #4</div>
+      <div class="phrase arabic">منيح</div>
+      <div class="label">Pronunciation</div><div class="value">mneeh</div>
+      <div class="label">Meaning</div><div class="value">Good</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>الحمدلله</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">al-hamdulillah</div>
+        <div class="label">Reply meaning</div><div class="value">Thank God</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #5</div>
+      <div class="phrase arabic">تمام</div>
+      <div class="label">Pronunciation</div><div class="value">ta-mam</div>
+      <div class="label">Meaning</div><div class="value">Okay / perfect</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تمام</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ta-mam</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #6</div>
+      <div class="phrase arabic">إيه</div>
+      <div class="label">Pronunciation</div><div class="value">eh</div>
+      <div class="label">Meaning</div><div class="value">Yes</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>إيه أكيد</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">eh a-keed</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, sure</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #7</div>
+      <div class="phrase arabic">لا</div>
+      <div class="label">Pronunciation</div><div class="value">la</div>
+      <div class="label">Meaning</div><div class="value">No</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>لا شكرا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">la shuk-ran</div>
+        <div class="label">Reply meaning</div><div class="value">No, thank you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #8</div>
+      <div class="phrase arabic">أكيد</div>
+      <div class="label">Pronunciation</div><div class="value">a-keed</div>
+      <div class="label">Meaning</div><div class="value">Sure</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>إيه أكيد</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">eh a-keed</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, sure</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #9</div>
+      <div class="phrase arabic">شكرا</div>
+      <div class="label">Pronunciation</div><div class="value">shuk-ran</div>
+      <div class="label">Meaning</div><div class="value">Thank you</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>عفوا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">aaf-wan</div>
+        <div class="label">Reply meaning</div><div class="value">You&#x27;re welcome</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #10</div>
+      <div class="phrase arabic">مرسي</div>
+      <div class="label">Pronunciation</div><div class="value">mer-see</div>
+      <div class="label">Meaning</div><div class="value">Thanks</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تكرم</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">tek-ram</div>
+        <div class="label">Reply meaning</div><div class="value">Gladly</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #11</div>
+      <div class="phrase arabic">عفوا</div>
+      <div class="label">Pronunciation</div><div class="value">aaf-wan</div>
+      <div class="label">Meaning</div><div class="value">You&#x27;re welcome</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>ولا يهمك</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">wa-la yhem-mak</div>
+        <div class="label">Reply meaning</div><div class="value">Don&#x27;t worry</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #12</div>
+      <div class="phrase arabic">لو سمحت</div>
+      <div class="label">Pronunciation</div><div class="value">law sa-ma-het</div>
+      <div class="label">Meaning</div><div class="value">Please / excuse me</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تفضل</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">tfa-ddal</div>
+        <div class="label">Reply meaning</div><div class="value">Here you go</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #13</div>
+      <div class="phrase arabic">آسف</div>
+      <div class="label">Pronunciation</div><div class="value">aa-sef</div>
+      <div class="label">Meaning</div><div class="value">Sorry</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>ما في مشكلة</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ma fee mush-kleh</div>
+        <div class="label">Reply meaning</div><div class="value">No problem</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #14</div>
+      <div class="phrase arabic">ما في مشكلة</div>
+      <div class="label">Pronunciation</div><div class="value">ma fee mush-kleh</div>
+      <div class="label">Meaning</div><div class="value">No problem</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تمام</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ta-mam</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #15</div>
+      <div class="phrase arabic">شو اسمك؟</div>
+      <div class="label">Pronunciation</div><div class="value">shoo is-mak / is-mik</div>
+      <div class="label">Meaning</div><div class="value">What is your name?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>اسمي...</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">is-mee</div>
+        <div class="label">Reply meaning</div><div class="value">My name is...</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #16</div>
+      <div class="phrase arabic">اسمي...</div>
+      <div class="label">Pronunciation</div><div class="value">is-mee</div>
+      <div class="label">Meaning</div><div class="value">My name is...</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تشرفنا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">tshar-raf-na</div>
+        <div class="label">Reply meaning</div><div class="value">Nice to meet you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #17</div>
+      <div class="phrase arabic">تشرفنا</div>
+      <div class="label">Pronunciation</div><div class="value">tshar-raf-na</div>
+      <div class="label">Meaning</div><div class="value">Nice to meet you</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>الشرف إلي</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">el-sha-raf e-lee</div>
+        <div class="label">Reply meaning</div><div class="value">The honor is mine</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #18</div>
+      <div class="phrase arabic">من وين إنت؟</div>
+      <div class="label">Pronunciation</div><div class="value">min wayn enta / enti</div>
+      <div class="label">Meaning</div><div class="value">Where are you from?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أنا من...</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">a-na min</div>
+        <div class="label">Reply meaning</div><div class="value">I am from...</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #19</div>
+      <div class="phrase arabic">أنا من أميركا</div>
+      <div class="label">Pronunciation</div><div class="value">a-na min am-ree-ka</div>
+      <div class="label">Meaning</div><div class="value">I am from America</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أهلا وسهلا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ah-lan wa sah-lan</div>
+        <div class="label">Reply meaning</div><div class="value">Welcome</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #20</div>
+      <div class="phrase arabic">شو عم تعمل؟</div>
+      <div class="label">Pronunciation</div><div class="value">shoo aam taamel</div>
+      <div class="label">Meaning</div><div class="value">What are you doing?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>ولا شي</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">wa-la shee</div>
+        <div class="label">Reply meaning</div><div class="value">Nothing</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #21</div>
+      <div class="phrase arabic">ولا شي</div>
+      <div class="label">Pronunciation</div><div class="value">wa-la shee</div>
+      <div class="label">Meaning</div><div class="value">Nothing</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تمام</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ta-mam</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #22</div>
+      <div class="phrase arabic">ما بعرف</div>
+      <div class="label">Pronunciation</div><div class="value">ma baa-ref</div>
+      <div class="label">Meaning</div><div class="value">I don&#x27;t know</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>ماشي</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ma-shee</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #23</div>
+      <div class="phrase arabic">بعرف</div>
+      <div class="label">Pronunciation</div><div class="value">baa-ref</div>
+      <div class="label">Meaning</div><div class="value">I know</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>ممتاز</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">moom-taz</div>
+        <div class="label">Reply meaning</div><div class="value">Excellent</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #24</div>
+      <div class="phrase arabic">ما فهمت</div>
+      <div class="label">Pronunciation</div><div class="value">ma fhe-met</div>
+      <div class="label">Meaning</div><div class="value">I didn&#x27;t understand</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>ولا يهمك</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">wa-la yhem-mak</div>
+        <div class="label">Reply meaning</div><div class="value">Don&#x27;t worry</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #25</div>
+      <div class="phrase arabic">عيدها</div>
+      <div class="label">Pronunciation</div><div class="value">a-eed-ha</div>
+      <div class="label">Meaning</div><div class="value">Repeat it</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أكيد</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">a-keed</div>
+        <div class="label">Reply meaning</div><div class="value">Sure</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #26</div>
+      <div class="phrase arabic">ببطء شوي</div>
+      <div class="label">Pronunciation</div><div class="value">be-bot shway</div>
+      <div class="label">Meaning</div><div class="value">A little slower</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>ماشي</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ma-shee</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #27</div>
+      <div class="phrase arabic">شو يعني؟</div>
+      <div class="label">Pronunciation</div><div class="value">shoo yaa-nee</div>
+      <div class="label">Meaning</div><div class="value">What does it mean?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>يعني...</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">yaa-nee</div>
+        <div class="label">Reply meaning</div><div class="value">It means...</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #28</div>
+      <div class="phrase arabic">بحكي شوي عربي</div>
+      <div class="label">Pronunciation</div><div class="value">bah-kee shway a-ra-bee</div>
+      <div class="label">Meaning</div><div class="value">I speak a little Arabic</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>كتير منيح</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">kteer mneeh</div>
+        <div class="label">Reply meaning</div><div class="value">Very good</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #29</div>
+      <div class="phrase arabic">أنا بتعلم عربي</div>
+      <div class="label">Pronunciation</div><div class="value">a-na ba-tal-lam a-ra-bee</div>
+      <div class="label">Meaning</div><div class="value">I am learning Arabic</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>برافو عليك</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">bra-vo aa-layk</div>
+        <div class="label">Reply meaning</div><div class="value">Good for you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #30</div>
+      <div class="phrase arabic">فيك تحكي إنجليزي؟</div>
+      <div class="label">Pronunciation</div><div class="value">feek teh-kee in-glee-zee</div>
+      <div class="label">Meaning</div><div class="value">Can you speak English?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>إيه شوي</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">eh shway</div>
+        <div class="label">Reply meaning</div><div class="value">Yes, a little</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #31</div>
+      <div class="phrase arabic">بدي هيدا</div>
+      <div class="label">Pronunciation</div><div class="value">bed-dee hay-da</div>
+      <div class="label">Meaning</div><div class="value">I want this</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أكيد</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">a-keed</div>
+        <div class="label">Reply meaning</div><div class="value">Sure</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #32</div>
+      <div class="phrase arabic">بحب هيدا</div>
+      <div class="label">Pronunciation</div><div class="value">bhebb hay-da</div>
+      <div class="label">Meaning</div><div class="value">I like this</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أنا كمان</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">a-na ka-man</div>
+        <div class="label">Reply meaning</div><div class="value">Me too</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #33</div>
+      <div class="phrase arabic">ما بحب هيدا</div>
+      <div class="label">Pronunciation</div><div class="value">ma bhebb hay-da</div>
+      <div class="label">Meaning</div><div class="value">I don&#x27;t like this</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>عادي</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">aa-dee</div>
+        <div class="label">Reply meaning</div><div class="value">It&#x27;s okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #34</div>
+      <div class="phrase arabic">قديش السعر؟</div>
+      <div class="label">Pronunciation</div><div class="value">ad-daysh el-seer</div>
+      <div class="label">Meaning</div><div class="value">How much is the price?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>عشرة دولار</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">aa-sha-ra do-lar</div>
+        <div class="label">Reply meaning</div><div class="value">Ten dollars</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #35</div>
+      <div class="phrase arabic">وين الحمام؟</div>
+      <div class="label">Pronunciation</div><div class="value">wayn el-ham-mem</div>
+      <div class="label">Meaning</div><div class="value">Where is the bathroom?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>هونيك</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ho-neek</div>
+        <div class="label">Reply meaning</div><div class="value">Over there</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #36</div>
+      <div class="phrase arabic">جوعان</div>
+      <div class="label">Pronunciation</div><div class="value">joo-aan</div>
+      <div class="label">Meaning</div><div class="value">I&#x27;m hungry</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>يلا ناكل</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">yal-la na-kol</div>
+        <div class="label">Reply meaning</div><div class="value">Let&#x27;s eat</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #37</div>
+      <div class="phrase arabic">عطشان</div>
+      <div class="label">Pronunciation</div><div class="value">aat-shan</div>
+      <div class="label">Meaning</div><div class="value">I&#x27;m thirsty</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>بدك مي؟</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">bad-dak may</div>
+        <div class="label">Reply meaning</div><div class="value">Do you want water?</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #38</div>
+      <div class="phrase arabic">بدي مي</div>
+      <div class="label">Pronunciation</div><div class="value">bed-dee may</div>
+      <div class="label">Meaning</div><div class="value">I want water</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تفضل</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">tfa-ddal</div>
+        <div class="label">Reply meaning</div><div class="value">Here you go</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #39</div>
+      <div class="phrase arabic">يلا</div>
+      <div class="label">Pronunciation</div><div class="value">yal-la</div>
+      <div class="label">Meaning</div><div class="value">Let&#x27;s go</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>يلا بينا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">yal-la bee-na</div>
+        <div class="label">Reply meaning</div><div class="value">Let&#x27;s go</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #40</div>
+      <div class="phrase arabic">خلص</div>
+      <div class="label">Pronunciation</div><div class="value">kha-las</div>
+      <div class="label">Meaning</div><div class="value">Enough / done</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تمام</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ta-mam</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #41</div>
+      <div class="phrase arabic">وينك؟</div>
+      <div class="label">Pronunciation</div><div class="value">way-nak / way-nik</div>
+      <div class="label">Meaning</div><div class="value">Where are you?</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أنا هون</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">a-na hon</div>
+        <div class="label">Reply meaning</div><div class="value">I am here</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #42</div>
+      <div class="phrase arabic">أنا هون</div>
+      <div class="label">Pronunciation</div><div class="value">a-na hon</div>
+      <div class="label">Meaning</div><div class="value">I am here</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تمام</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ta-mam</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #43</div>
+      <div class="phrase arabic">هونيك</div>
+      <div class="label">Pronunciation</div><div class="value">ho-neek</div>
+      <div class="label">Meaning</div><div class="value">Over there</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>شكرا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">shuk-ran</div>
+        <div class="label">Reply meaning</div><div class="value">Thank you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #44</div>
+      <div class="phrase arabic">عاليمين</div>
+      <div class="label">Pronunciation</div><div class="value">aal-ya-meen</div>
+      <div class="label">Meaning</div><div class="value">To the right</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>تمام</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">ta-mam</div>
+        <div class="label">Reply meaning</div><div class="value">Okay</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #45</div>
+      <div class="phrase arabic">عالشمال</div>
+      <div class="label">Pronunciation</div><div class="value">aal-shmel</div>
+      <div class="label">Meaning</div><div class="value">To the left</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>شكرا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">shuk-ran</div>
+        <div class="label">Reply meaning</div><div class="value">Thank you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #46</div>
+      <div class="phrase arabic">بساعدك</div>
+      <div class="label">Pronunciation</div><div class="value">bsa-a-dak</div>
+      <div class="label">Meaning</div><div class="value">I&#x27;ll help you</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>شكرا</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">shuk-ran</div>
+        <div class="label">Reply meaning</div><div class="value">Thank you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #47</div>
+      <div class="phrase arabic">محتاج مساعدة</div>
+      <div class="label">Pronunciation</div><div class="value">meh-taj moo-sa-a-deh</div>
+      <div class="label">Meaning</div><div class="value">I need help</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>بساعدك</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">bsa-a-dak</div>
+        <div class="label">Reply meaning</div><div class="value">I&#x27;ll help you</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #48</div>
+      <div class="phrase arabic">دير بالك</div>
+      <div class="label">Pronunciation</div><div class="value">deer ba-lak</div>
+      <div class="label">Meaning</div><div class="value">Take care</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>إنت كمان</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">en-ta ka-man</div>
+        <div class="label">Reply meaning</div><div class="value">You too</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #49</div>
+      <div class="phrase arabic">منشوفك</div>
+      <div class="label">Pronunciation</div><div class="value">mn-shoo-fak</div>
+      <div class="label">Meaning</div><div class="value">See you</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أكيد</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">a-keed</div>
+        <div class="label">Reply meaning</div><div class="value">Sure</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="num">Lebanese Arabic #50</div>
+      <div class="phrase arabic">بكرا منحكي</div>
+      <div class="label">Pronunciation</div><div class="value">book-ra men-heh-kee</div>
+      <div class="label">Meaning</div><div class="value">We&#x27;ll talk tomorrow</div>
+      <div class="reply">
+        <div class="label">Common reply</div><div class="value arabic"><b>أكيد</b></div>
+        <div class="label">Reply pronunciation</div><div class="value">a-keed</div>
+        <div class="label">Reply meaning</div><div class="value">Sure</div>
+      </div>
+    </article></div></section>
+<section id="jamaican"><h2>🇯🇲 50 Jamaican Culture Facts</h2><div class="grid"><article class="card"><div class="num">Jamaican fact #1</div><div class="fact">Jamaica’s culture blends African, European, Indian, Chinese, Middle Eastern, and Indigenous Taíno influences.</div></article>
+<article class="card"><div class="num">Jamaican fact #2</div><div class="fact">English is Jamaica’s official language, while Jamaican Patois is widely spoken in everyday life.</div></article>
+<article class="card"><div class="num">Jamaican fact #3</div><div class="fact">Reggae developed in Jamaica and became one of the island’s most globally recognized cultural exports.</div></article>
+<article class="card"><div class="num">Jamaican fact #4</div><div class="fact">Bob Marley helped bring reggae and Jamaican culture to worldwide attention.</div></article>
+<article class="card"><div class="num">Jamaican fact #5</div><div class="fact">Dancehall grew from Jamaican sound system culture and reggae roots.</div></article>
+<article class="card"><div class="num">Jamaican fact #6</div><div class="fact">Jamaican sound systems helped shape DJ culture, remixing, and modern popular music.</div></article>
+<article class="card"><div class="num">Jamaican fact #7</div><div class="fact">Jerk seasoning usually includes allspice and Scotch bonnet peppers.</div></article>
+<article class="card"><div class="num">Jamaican fact #8</div><div class="fact">Ackee and saltfish is often considered Jamaica’s national dish.</div></article>
+<article class="card"><div class="num">Jamaican fact #9</div><div class="fact">Rice and peas is commonly made with kidney beans or gungo peas and coconut milk.</div></article>
+<article class="card"><div class="num">Jamaican fact #10</div><div class="fact">Jamaican patties are flaky pastries filled with seasoned meat, vegetables, or seafood.</div></article>
+<article class="card"><div class="num">Jamaican fact #11</div><div class="fact">Blue Mountain coffee is one of Jamaica’s famous agricultural products.</div></article>
+<article class="card"><div class="num">Jamaican fact #12</div><div class="fact">Jamaica’s motto is &#x27;Out of Many, One People.&#x27;</div></article>
+<article class="card"><div class="num">Jamaican fact #13</div><div class="fact">Jamaica gained independence from Britain on August sixth, nineteen sixty-two.</div></article>
+<article class="card"><div class="num">Jamaican fact #14</div><div class="fact">Independence Day is celebrated every year with national pride and cultural events.</div></article>
+<article class="card"><div class="num">Jamaican fact #15</div><div class="fact">Emancipation Day is observed on August first.</div></article>
+<article class="card"><div class="num">Jamaican fact #16</div><div class="fact">Jonkunnu is a traditional Jamaican masquerade with music, dance, and costumes.</div></article>
+<article class="card"><div class="num">Jamaican fact #17</div><div class="fact">Kumina is an Afro-Jamaican religious and cultural tradition.</div></article>
+<article class="card"><div class="num">Jamaican fact #18</div><div class="fact">Maroon communities descend from Africans who resisted enslavement.</div></article>
+<article class="card"><div class="num">Jamaican fact #19</div><div class="fact">Accompong is a well-known Maroon community in Jamaica.</div></article>
+<article class="card"><div class="num">Jamaican fact #20</div><div class="fact">Jamaican Patois has West African and English influences.</div></article>
+<article class="card"><div class="num">Jamaican fact #21</div><div class="fact">Jamaica has a strong oral storytelling tradition.</div></article>
+<article class="card"><div class="num">Jamaican fact #22</div><div class="fact">Anansi stories are important in Jamaican folklore.</div></article>
+<article class="card"><div class="num">Jamaican fact #23</div><div class="fact">Jamaican cuisine often uses bold spices, herbs, roots, and tropical fruits.</div></article>
+<article class="card"><div class="num">Jamaican fact #24</div><div class="fact">Scotch bonnet pepper is important for heat and flavor.</div></article>
+<article class="card"><div class="num">Jamaican fact #25</div><div class="fact">Festival is a sweet fried dough often served with fish or jerk.</div></article>
+<article class="card"><div class="num">Jamaican fact #26</div><div class="fact">Bammy is a cassava flatbread with Indigenous Taíno roots.</div></article>
+<article class="card"><div class="num">Jamaican fact #27</div><div class="fact">Callaloo is a leafy green used in Jamaican cooking.</div></article>
+<article class="card"><div class="num">Jamaican fact #28</div><div class="fact">Sorrel drink is popular around Christmas.</div></article>
+<article class="card"><div class="num">Jamaican fact #29</div><div class="fact">Jamaican Christmas traditions often include sorrel and fruit cake.</div></article>
+<article class="card"><div class="num">Jamaican fact #30</div><div class="fact">Easter traditions in Jamaica often include bun and cheese.</div></article>
+<article class="card"><div class="num">Jamaican fact #31</div><div class="fact">Cricket has been historically popular in Jamaica.</div></article>
+<article class="card"><div class="num">Jamaican fact #32</div><div class="fact">Track and field is a major part of Jamaican national pride.</div></article>
+<article class="card"><div class="num">Jamaican fact #33</div><div class="fact">Usain Bolt became a global symbol of Jamaican sprinting excellence.</div></article>
+<article class="card"><div class="num">Jamaican fact #34</div><div class="fact">Shelly-Ann Fraser-Pryce is one of Jamaica’s celebrated sprint athletes.</div></article>
+<article class="card"><div class="num">Jamaican fact #35</div><div class="fact">Jamaican dance is closely tied to music and community expression.</div></article>
+<article class="card"><div class="num">Jamaican fact #36</div><div class="fact">Mento influenced ska and reggae.</div></article>
+<article class="card"><div class="num">Jamaican fact #37</div><div class="fact">Ska developed in Jamaica before rocksteady and reggae.</div></article>
+<article class="card"><div class="num">Jamaican fact #38</div><div class="fact">Rocksteady helped lead into reggae.</div></article>
+<article class="card"><div class="num">Jamaican fact #39</div><div class="fact">Rastafari began in Jamaica and influenced music and identity.</div></article>
+<article class="card"><div class="num">Jamaican fact #40</div><div class="fact">Rastafari culture helped popularize dreadlocks and ital food.</div></article>
+<article class="card"><div class="num">Jamaican fact #41</div><div class="fact">Ital food often focuses on natural plant-based eating.</div></article>
+<article class="card"><div class="num">Jamaican fact #42</div><div class="fact">Jamaica’s flag colors are black, green, and gold.</div></article>
+<article class="card"><div class="num">Jamaican fact #43</div><div class="fact">Kingston is Jamaica’s capital and a major music center.</div></article>
+<article class="card"><div class="num">Jamaican fact #44</div><div class="fact">Montego Bay is a major city known for tourism and coastal culture.</div></article>
+<article class="card"><div class="num">Jamaican fact #45</div><div class="fact">Jamaican proverbs teach wisdom through everyday language.</div></article>
+<article class="card"><div class="num">Jamaican fact #46</div><div class="fact">Community and family networks are important in Jamaican social life.</div></article>
+<article class="card"><div class="num">Jamaican fact #47</div><div class="fact">Respectful greetings matter, especially with elders.</div></article>
+<article class="card"><div class="num">Jamaican fact #48</div><div class="fact">Jamaican culture has global influence through music, food, sports, and language.</div></article>
+<article class="card"><div class="num">Jamaican fact #49</div><div class="fact">Jamaican cuisine reflects history, migration, and local ingredients.</div></article>
+<article class="card"><div class="num">Jamaican fact #50</div><div class="fact">Many Jamaican celebrations include music, food, family, and faith.</div></article></div></section>
+<section id="cree"><h2>🪶 50 Cree Culture Facts</h2><div class="grid"><article class="card"><div class="num">Cree fact #1</div><div class="fact">The Cree are one of the largest Indigenous peoples in Canada.</div></article>
+<article class="card"><div class="num">Cree fact #2</div><div class="fact">Cree communities include Plains Cree, Woods Cree, Swampy Cree, Moose Cree, and East Cree groups.</div></article>
+<article class="card"><div class="num">Cree fact #3</div><div class="fact">Cree languages belong to the Algonquian language family.</div></article>
+<article class="card"><div class="num">Cree fact #4</div><div class="fact">Cree is spoken across a very large geographic area.</div></article>
+<article class="card"><div class="num">Cree fact #5</div><div class="fact">Different Cree dialects can vary greatly.</div></article>
+<article class="card"><div class="num">Cree fact #6</div><div class="fact">The Plains Cree word nêhiyawak is often used by Plains Cree people to refer to themselves.</div></article>
+<article class="card"><div class="num">Cree fact #7</div><div class="fact">Cree peoples historically lived in forests, plains, wetlands, and subarctic regions.</div></article>
+<article class="card"><div class="num">Cree fact #8</div><div class="fact">Many Cree communities have deep relationships with land, water, animals, and seasons.</div></article>
+<article class="card"><div class="num">Cree fact #9</div><div class="fact">Traditional Cree life varied by region.</div></article>
+<article class="card"><div class="num">Cree fact #10</div><div class="fact">Some Cree communities relied on hunting, fishing, trapping, and gathering.</div></article>
+<article class="card"><div class="num">Cree fact #11</div><div class="fact">Bison were historically important to Plains Cree life.</div></article>
+<article class="card"><div class="num">Cree fact #12</div><div class="fact">Canoes, snowshoes, and toboggans were important technologies in many regions.</div></article>
+<article class="card"><div class="num">Cree fact #13</div><div class="fact">The fur trade changed Cree trade relationships and politics.</div></article>
+<article class="card"><div class="num">Cree fact #14</div><div class="fact">Cree traders often played important roles in the fur trade.</div></article>
+<article class="card"><div class="num">Cree fact #15</div><div class="fact">Cree oral tradition passes down history, values, teachings, and humor.</div></article>
+<article class="card"><div class="num">Cree fact #16</div><div class="fact">Storytelling is a respected teaching method.</div></article>
+<article class="card"><div class="num">Cree fact #17</div><div class="fact">Elders hold important roles as knowledge keepers.</div></article>
+<article class="card"><div class="num">Cree fact #18</div><div class="fact">Cree kinship emphasizes family, responsibility, and community.</div></article>
+<article class="card"><div class="num">Cree fact #19</div><div class="fact">Respect, humility, sharing, and reciprocity are important values.</div></article>
+<article class="card"><div class="num">Cree fact #20</div><div class="fact">Many Cree communities work to protect and revitalize their languages.</div></article>
+<article class="card"><div class="num">Cree fact #21</div><div class="fact">Cree syllabics are used for several Cree dialects.</div></article>
+<article class="card"><div class="num">Cree fact #22</div><div class="fact">Cree syllabics became widely used in some communities in the nineteenth century.</div></article>
+<article class="card"><div class="num">Cree fact #23</div><div class="fact">Roman alphabet writing is also used for Cree languages.</div></article>
+<article class="card"><div class="num">Cree fact #24</div><div class="fact">Cree language learning resources often differ by dialect.</div></article>
+<article class="card"><div class="num">Cree fact #25</div><div class="fact">Powwows are important social and cultural gatherings for many Indigenous communities.</div></article>
+<article class="card"><div class="num">Cree fact #26</div><div class="fact">Drumming and singing can be important in gatherings.</div></article>
+<article class="card"><div class="num">Cree fact #27</div><div class="fact">Beadwork is an important art form in many Cree communities.</div></article>
+<article class="card"><div class="num">Cree fact #28</div><div class="fact">Floral beadwork is associated with many First Nations artistic traditions.</div></article>
+<article class="card"><div class="num">Cree fact #29</div><div class="fact">Moose hide and other materials have been used in clothing and tools.</div></article>
+<article class="card"><div class="num">Cree fact #30</div><div class="fact">Cree artists work in traditional and contemporary forms.</div></article>
+<article class="card"><div class="num">Cree fact #31</div><div class="fact">Many Cree people live in both First Nations communities and cities.</div></article>
+<article class="card"><div class="num">Cree fact #32</div><div class="fact">Cree identity today includes language, art, education, politics, and community life.</div></article>
+<article class="card"><div class="num">Cree fact #33</div><div class="fact">The Cree have treaty relationships with the Crown in many parts of Canada.</div></article>
+<article class="card"><div class="num">Cree fact #34</div><div class="fact">Treaty histories are important to Cree political and land relationships.</div></article>
+<article class="card"><div class="num">Cree fact #35</div><div class="fact">Not all Cree communities share the same treaty history.</div></article>
+<article class="card"><div class="num">Cree fact #36</div><div class="fact">Cree governance varies by nation and region.</div></article>
+<article class="card"><div class="num">Cree fact #37</div><div class="fact">James Bay Cree communities have distinct histories and institutions.</div></article>
+<article class="card"><div class="num">Cree fact #38</div><div class="fact">Some Cree communities are part of Eeyou Istchee in northern Quebec.</div></article>
+<article class="card"><div class="num">Cree fact #39</div><div class="fact">Cree communities across Saskatchewan, Alberta, Manitoba, Ontario, and Quebec have distinct histories.</div></article>
+<article class="card"><div class="num">Cree fact #40</div><div class="fact">Cree culture should not be treated as one identical culture.</div></article>
+<article class="card"><div class="num">Cree fact #41</div><div class="fact">Cree knowledge includes animals, weather, plants, routes, and seasons.</div></article>
+<article class="card"><div class="num">Cree fact #42</div><div class="fact">Traditional ecological knowledge remains important.</div></article>
+<article class="card"><div class="num">Cree fact #43</div><div class="fact">Hunting can be both practical and cultural.</div></article>
+<article class="card"><div class="num">Cree fact #44</div><div class="fact">Fishing remains important in many Cree regions.</div></article>
+<article class="card"><div class="num">Cree fact #45</div><div class="fact">Berry picking and plant knowledge are part of seasonal life.</div></article>
+<article class="card"><div class="num">Cree fact #46</div><div class="fact">Humor and teasing can be part of social bonding.</div></article>
+<article class="card"><div class="num">Cree fact #47</div><div class="fact">Ceremonies should be approached respectfully.</div></article>
+<article class="card"><div class="num">Cree fact #48</div><div class="fact">Language, land, family, and community are central themes.</div></article>
+<article class="card"><div class="num">Cree fact #49</div><div class="fact">Cree youth use media, schools, apps, and programs to learn culture.</div></article>
+<article class="card"><div class="num">Cree fact #50</div><div class="fact">Learning respectfully means recognizing Cree people as living communities today.</div></article></div></section>
+<section id="sources"><h2>Sources</h2><ol><li><a href="https://jis.gov.jm/jamaica/jamaican-culture-learn-about-language-music-dance-cuisine/" target="_blank" rel="noopener">Jamaica Information Service - Jamaican Culture</a></li>
+<li><a href="https://www.britannica.com/place/Jamaica/Cultural-life" target="_blank" rel="noopener">Britannica - Jamaica Cultural Life</a></li>
+<li><a href="https://www.visitjamaica.com/discover-jamaica/" target="_blank" rel="noopener">Visit Jamaica - Discover Jamaica</a></li>
+<li><a href="https://www.britannica.com/topic/Cree" target="_blank" rel="noopener">Britannica - Cree</a></li>
+<li><a href="https://www.caslt.org/en/blog-discovering-languages-cree/" target="_blank" rel="noopener">CASLT - Cree Diversity and Language</a></li>
+<li><a href="https://teaching.usask.ca/indigenoussk/import/cree.php" target="_blank" rel="noopener">University of Saskatchewan - Cree</a></li>
+<li><a href="https://preply.com/en/blog/basic-spanish-words-and-phrases/" target="_blank" rel="noopener">Preply - Basic Spanish phrases</a></li>
+<li><a href="https://www.omniglot.com/language/phrases/arabic_lebanese.php" target="_blank" rel="noopener">Omniglot - Lebanese Arabic phrases</a></li>
+<li><a href="https://lebanese-arabic.com/lesson15/" target="_blank" rel="noopener">Lebanese-Arabic.com - Common phrases</a></li></ol></section>
+</main>
+<a class="topbtn" href="#top">↑ Top</a>
+<footer>Install on phone: open this GitHub Pages site, then use “Add to Home Screen.”</footer>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+}
+</script>
+</body>
+</html>
